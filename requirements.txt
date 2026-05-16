@@ -1,0 +1,13 @@
+flask>=2.0
+pandas>=1.3
+numpy>=1.24
+scikit-learn>=1.0
+matplotlib>=3.4
+seaborn>=0.11
+joblib>=1.1
+mlflow>=1.30
+dvc>=2.0
+xgboost>=1.5
+# Note: Chart.js is a frontend JS library and should not be installed via pip.
+# The frontend uses a CDN link in `frontend/index.html`.
+python-dotenv>=0.21

@@ -1,0 +1,12 @@
+__pycache__/
+.pytest_cache/
+env/
+venv/
+*.pyc
+data/
+models/
+mlruns/
+reports/
+.dvc/
+.env
+*.log

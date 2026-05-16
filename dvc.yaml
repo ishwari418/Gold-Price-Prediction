@@ -1,0 +1,31 @@
+stages:
+  generate:
+    cmd: py scripts/generate_synthetic_data.py --output data/gold.csv --n 5000
+    deps:
+      - scripts/generate_synthetic_data.py
+    outs:
+      - data/gold.csv
+
+  preprocess:
+    cmd: py src/preprocess_runner.py --input data/gold.csv --output data/processed.csv
+    deps:
+      - src/preprocessing.py
+      - src/data_utils.py
+    outs:
+      - data/processed.csv
+
+  train:
+    cmd: py src/train.py --data data/processed.csv --output models/
+    deps:
+      - src/train.py
+      - src/models.py
+      - src/features.py
+    outs:
+      - models/
+
+  evaluate:
+    cmd: py src/evaluate.py --data data/processed.csv --models models/ --out reports/
+    deps:
+      - src/evaluate.py
+    outs:
+      - reports/
